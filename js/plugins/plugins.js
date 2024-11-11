@@ -13444,24 +13444,6 @@
                 a(c).on(
                     'mouseup.owl.core touchend.owl.core',
                     a.proxy(this.onDragEnd, this),
-                ),
-                a(c).one(
-                    'mousemove.owl.core touchmove.owl.core',
-                    a.proxy(function (b) {
-                        var d = this.difference(
-                            this._drag.pointer,
-                            this.pointer(b),
-                        );
-                        a(c).on(
-                            'mousemove.owl.core touchmove.owl.core',
-                            a.proxy(this.onDragMove, this),
-                        ),
-                            (Math.abs(d.x) < Math.abs(d.y) &&
-                                this.is('valid')) ||
-                                (b.preventDefault(),
-                                this.enter('dragging'),
-                                this.trigger('drag'));
-                    }, this),
                 ));
         }),
         (e.prototype.onDragMove = function (a) {
@@ -14856,7 +14838,6 @@
                                 .is(this._controls.$absolute)
                                 ? a(b.target).index()
                                 : a(b.target).parent().index();
-                            b.preventDefault(), this.to(d, c.dotsSpeed);
                         }, this),
                     );
                 for (b in this._overrides)
